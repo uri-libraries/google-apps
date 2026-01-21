@@ -2,8 +2,8 @@ const EMAIL_CONTACTS = {
   circulation: "librarycirc-group@uri.edu",
   itCampus: "helpdesk@uri.edu",
   itLibrary: "libtechsupport@uri.edu",
-  housekeeping: "example4@example.com",
-  facilities: "example5@example.com",
+  housekeeping: "?",
+  facilities: "?",
   deansOffice: "libadmin-group@uri.edu"
 };
 
