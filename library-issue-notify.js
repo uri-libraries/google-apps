@@ -227,7 +227,8 @@ function sendNotificationEmail(recipientEmail, issues, floor, location, addition
   const emailOptions = { 
     to: recipientEmail, 
     subject: subject, 
-    body: body 
+    body: body,
+    name: "Library Issue Bot"
   };
   
   if (ccEmail) {
