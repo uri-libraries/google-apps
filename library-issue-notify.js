@@ -107,7 +107,7 @@ function sendNotificationEmail(recipientEmail, issues, floor, location, addition
   
   body += "\n═══════════════════════════════════════════════════════\n";
   body += "This is an automated notification from the Library Issue\n";
-  body += "Reporting System. View all responses in the linked\n";
+  body += "Reporting form. View all responses in the linked\n";
   body += "Google Sheet for complete details and uploaded photos.\n";
   body += "═══════════════════════════════════════════════════════\n";
   
