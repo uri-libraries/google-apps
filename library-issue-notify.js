@@ -222,6 +222,9 @@ function sendNotificationEmail(recipientEmail, issues, floor, location, addition
   body += "This is an automated notification from the Library Issue\n";
   body += "Reporting form. View all responses in the linked\n";
   body += "Google Sheet for complete details and uploaded photos.\n";
+  body += "\n";
+  body += "View Response Spreadsheet:\n";
+  body += "https://docs.google.com/spreadsheets/d/1acmZfeHn8uPXs-5r94UFrl-EW_x-X_Q_wb2hp_0M3gM/edit?usp=sharing\n";
   body += "═══════════════════════════════════════════════════════\n";
   
   const emailOptions = { 
