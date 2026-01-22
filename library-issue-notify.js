@@ -2,8 +2,8 @@ const EMAIL_CONTACTS = {
   circulation: "librarycirc-group@uri.edu",
   itCampus: "helpdesk@uri.edu",
   itLibrary: "libtechsupport@uri.edu",
-  housekeeping: "?",
-  facilities: "?",
+  housekeeping: "libadmin-group@uri.edu",
+  facilities: "libadmin-group@uri.edu",
   deansOffice: "libadmin-group@uri.edu"
 };
 
@@ -64,11 +64,12 @@ function onFormSubmit(e) {
   });
   
   for (const [department, issues] of Object.entries(departmentsToNotify)) {
-    sendNotificationEmail(EMAIL_CONTACTS[department], issues, floor, location, additionalInfo, contactInfo, hasPhoto);
+    const ccEmail = department === "itCampus" ? EMAIL_CONTACTS.itLibrary : null;
+    sendNotificationEmail(EMAIL_CONTACTS[department], issues, floor, location, additionalInfo, contactInfo, hasPhoto, ccEmail);
   }
 }
 
-function sendNotificationEmail(recipientEmail, issues, floor, location, additionalInfo, contactInfo, hasPhoto) {
+function sendNotificationEmail(recipientEmail, issues, floor, location, additionalInfo, contactInfo, hasPhoto, ccEmail) {
   const subject = "Library Issue Report: " + issues[0].split(" - ")[0];
   const timestamp = new Date().toLocaleString();
   
@@ -110,5 +111,9 @@ function sendNotificationEmail(recipientEmail, issues, floor, location, addition
   body += "Google Sheet for complete details and uploaded photos.\n";
   body += "═══════════════════════════════════════════════════════\n";
   
-  MailApp.sendEmail(recipientEmail, subject, body);
+  const emailOptions = { to: recipientEmail, subject: subject, body: body };
+  if (ccEmail) {
+    emailOptions.cc = ccEmail;
+  }
+  MailApp.sendEmail(emailOptions);
 }
