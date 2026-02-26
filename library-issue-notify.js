@@ -14,7 +14,7 @@ const EMAIL_CONTACTS = {
 
 const ISSUE_MAPPINGS = {
   "Noise complaint - Circulation 🔊": "circulation",
-  "Missing personal item - Circulation 🔍": "circulation",
+  "Lost personal item - Circulation 🔍": "circulation",
   "Turn on lights - Circulation 💡": "circulation",
   "Printer problem - IT (Campus) 🖨️": "itCampus",
   "Library computers - IT (Library) 🖥️": "itLibrary",
